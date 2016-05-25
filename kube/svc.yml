@@ -1,0 +1,12 @@
+kind: "Service"
+apiVersion: v1
+metadata:
+  name: udp-listen
+spec:
+  type: ClusterIP
+  selector:
+    app: udp-listen
+  ports:
+    - name: udp
+      protocol: UDP
+      port: 8088

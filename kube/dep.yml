@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: udp-listen
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: udp-listen
+    spec:
+      containers:
+        - name: udp-listen
+          image: nanit/udp-listen
+          ports:
+            - name: udp
+              protocol: UDP
+              containerPort: 8088
+          args: ["-i", "any", "-n", "udp", "-A", "-v", "-l"]
